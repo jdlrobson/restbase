@@ -35,7 +35,7 @@ paths:
         '200':
           description: The related pages
           schema:
-            $ref: '#/definitions/related'
+            $ref: '#/definitions/pagelist'
         '404':
           description: Unknown page title
           schema:
@@ -89,12 +89,12 @@ definitions:
       instance:
         type: string
 
-  related:
+  pagelist:
     type: object
     properties:
-      items:
+      pages:
         type: array
-        items:
+        pages:
           type: object
           properties:
             pageid:
@@ -109,14 +109,9 @@ definitions:
             index:
               type: integer
               description: Relevance index of this result
-            term:
-              type: object
-              properties:
-                description:
-                  type: array
-                  items:
-                    type: string
-                    description: First several sentences of an article in plain text
+            description:
+              type: string
+              description: Wikidata description
             thumbnail:
               type: object
               properties:
